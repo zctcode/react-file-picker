@@ -26,27 +26,18 @@ pnpm add @ihatecode/react-file-picker
 
 ```jsx
 import React from 'react';
-import Splitter from '@ihatecode/react-splitter';
-import '@ihatecode/react-splitter/lib/style.css';
+import FilePicker from '@ihatecode/react-file-picker';
+import '@ihatecode/react-file-picker/lib/style.css';
 
 const App: React.FC = () => {
   return (
-    <Splitter
-        items={[
-            {
-                defaultSize:200,
-                minSize:100,
-                maxSize:300,
-                content:<div>Left</div>
-            },
-            {
-                defaultSize:200,
-                minSize:100,
-                maxSize:300,
-                content:<div>Right</div>
-            }]
-        }
-    />
+    <FilePicker
+        multiple
+        accept="image/*"
+        onChange={(files) => console.log(files)}
+    >
+      <span>选择文件</span>
+    </FilePicker>
   );
 };
 
